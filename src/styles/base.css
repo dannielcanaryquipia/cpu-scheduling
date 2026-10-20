@@ -1,0 +1,208 @@
+/* =========================================================
+   base.css — design tokens, reset, typography
+   ========================================================= */
+
+:root {
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
+
+  --bg: #f4f2ec;
+  --surface: #fffdf8;
+  --surface-2: #eeebe3;
+  --border: #dcd7ca;
+  --border-strong: #c5bfb0;
+  --text: #1d1c19;
+  --muted: #6b675e;
+
+  --accent: #0f766e;
+  --accent-hover: #0b5f58;
+  --accent-ink: #ffffff;
+  --accent-soft: #d6eee8;
+
+  --warm: #b4430e;
+  --warm-soft: #fbe3d3;
+  --cool: #1f4fbf;
+  --cool-soft: #dfe7fa;
+  --danger: #b42318;
+  --danger-soft: #fbe2df;
+  --ok: #157a3c;
+  --ok-soft: #daf1e1;
+  --gold: #9a6a00;
+  --gold-soft: #f8ecc8;
+
+  --code-bg: #1e2320;
+  --code-text: #e6efe9;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 2px rgba(30, 25, 10, 0.06), 0 6px 20px rgba(30, 25, 10, 0.06);
+  --topbar-h: 58px;
+
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #111412;
+  --surface: #181c1a;
+  --surface-2: #212623;
+  --border: #2d3430;
+  --border-strong: #3d4540;
+  --text: #ebeae4;
+  --muted: #9ba099;
+
+  --accent: #34d3bd;
+  --accent-hover: #5ee0ce;
+  --accent-ink: #052b26;
+  --accent-soft: #123631;
+
+  --warm: #f59a62;
+  --warm-soft: #3a2418;
+  --cool: #8fb0ff;
+  --cool-soft: #1c2742;
+  --danger: #ff8a7d;
+  --danger-soft: #3d1d1a;
+  --ok: #6fdc98;
+  --ok-soft: #173424;
+  --gold: #f0c35a;
+  --gold-soft: #3a2f12;
+
+  --code-bg: #0b0d0c;
+  --code-text: #dfe9e3;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.45rem;
+  font-weight: 650;
+  margin-top: 2.2em;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul,
+ol {
+  padding-left: 1.3em;
+  margin: 0 0 1em;
+}
+
+li + li {
+  margin-top: 0.3em;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 0.1em 0.4em;
+  border-radius: 5px;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+.lead {
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+.hint {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 0.6rem 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
